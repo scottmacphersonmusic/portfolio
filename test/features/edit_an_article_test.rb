@@ -8,8 +8,8 @@ feature "Editing An Article" do
     visit article_path(article)
     click_on 'Edit'
     # When I edit and submit the form
-    fill_in 'Title', :with => "Regarding Mediocrity"
-    fill_in 'Body', :with => "meh..."
+    fill_in 'Title', with: "Regarding Mediocrity"
+    fill_in 'Body', with: "meh..."
     click_on 'Update Article'
     # Then the article should be edited and displayed
     page.text.must_include "Regarding Mediocrity"

@@ -1,4 +1,6 @@
-ENV["RAILS_ENV"] = "test"
+# The below line isn't actually taking effect, so force the test
+# environment by running `RAILS_ENV=test rake`
+Rails.env = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
