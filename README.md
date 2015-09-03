@@ -2,10 +2,11 @@
 By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 
 ### Description
-This site features a welcome page that tells you a couple things about me!
-*You're welcome ;)*
+This site is a project to help me demonstarte to potential employers
+that I can make an awesome looking app.
 
 ### Screenshot
+Here's what the articles index looks like:
 ![/articles screenshot](/app/assets/images/articles_index.png
 "/articles")
 
