@@ -9,6 +9,7 @@ feature "Create An Article" do
     fill_in 'Body', with: "Raindrops on roses..."
     click_on 'Create Article'
     # Then a new article should be created and displayed
+    page.text.must_include "Article was successfully created"
     page.text.must_include "My Favorite Things"
   end
 end
