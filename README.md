@@ -6,7 +6,8 @@ This site features a welcome page that tells you a couple things about me!
 *You're welcome ;)*
 
 ### Screenshot
-![/articles screenshot](/app/assets/images/articles_index.png "/articles")
+![/articles screenshot](/app/assets/images/articles_index.png
+"/articles")
 
 ### Contributing
 1. Fork It
@@ -17,4 +18,8 @@ This site features a welcome page that tells you a couple things about me!
 6. Create new Pull Request
 
 ### Credit
-The template for this readme was inspired by [stephzilla](https://github.com/scottmacphersonmusic/readme)
+The template for this readme was inspired by
+[stephzilla](https://github.com/scottmacphersonmusic/readme)
+
+Info on how to put an image in the README found at
+http://daringfireball.net/projects/markdown/basics
