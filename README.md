@@ -5,6 +5,9 @@ By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 This site features a welcome page that tells you a couple things about me!
 *You're welcome ;)*
 
+### Screenshot
+![/articles screenshot](/app/assets/images/articles_index.png "/articles")
+
 ### Contributing
 1. Fork It
 2. Think super hard about other things you think I might like
