@@ -6,4 +6,9 @@ class WelcomePageTest < Capybara::Rails::TestCase
     assert_content page, "Scott Macpherson"
     refute_content page, "Goobye All!"
   end
+
+  test "depoloyed app should have custom domain name" do
+    visit "https://www.scottmacphersonmusic.com/"
+    assert_content page, "Scott Macpherson"
+  end
 end
