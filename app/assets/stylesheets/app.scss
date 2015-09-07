@@ -4,10 +4,9 @@
    Table of Contents
 -----------------------------------------------------
 :: Shared Styles
-:: Page Name 1
-:: Page Name 2
+:: Welcome Page
+:: Blog
 */
-
 
 /* -----------------------------------------
    Shared Styles
@@ -15,6 +14,28 @@
 
 #name {
   font-family: 'Gruppo', cursive;
+}
+
+.title {
+  font-family: 'Gruppo', cursive;
+  margin-left: 10%
+}
+
+.navlink:hover {
+  background: #2ba6cb;
+}
+
+.button.radius.small {
+  color: #e6e6e6;
+  background: #666;
+}
+
+.button.radius.small:hover {
+  background: #2ba6cb;
+}
+
+#footer {
+  color: white;
 }
 
 /* -----------------------------------------
@@ -35,8 +56,8 @@
   margin-bottom: 80px;
 }
 
-#copywrite {
-  text-align: right;
+div#about.row {
+  margin-bottom: 85%
 }
 
 #info{
@@ -46,3 +67,19 @@
 /* -----------------------------------------
    Blog
 ----------------------------------------- */
+
+#articles {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#new_article {
+  color: #e6e6e6;
+  background: #666;
+  margin-left: 65%;
+  margin-bottom: 1.3em;
+}
+
+#new_article:hover {
+  background: #2ba6cb;
+}

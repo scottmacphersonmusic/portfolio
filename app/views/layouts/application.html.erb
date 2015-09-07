@@ -7,15 +7,18 @@
     <title>Scott Macpherson | Portfolio</title>
 
     <%= stylesheet_link_tag    "application" %>
-    <link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Gruppo'
+          rel='stylesheet' type='text/css'>
+    <%= favicon_link_tag "rest.ico" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-
+    <%= render 'shared/header' %>
     <%= yield %>
-
+    <%= render 'shared/js'  %>
+    <%= render 'shared/footer'%>
   </body>
 </html>

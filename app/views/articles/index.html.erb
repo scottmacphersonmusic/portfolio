@@ -1,29 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Articles</h1>
+<div>
+  <h1 class="title">Blog</h1>
+  <div>
+    <%= link_to 'New Article', new_article_path,
+        id: "new_article", class: "button radius" %>
+  </div>
+  <table id="articles">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
+    <tbody>
+      <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', article, class: "button radius small" %></td>
+        <td><%= link_to 'Edit', edit_article_path(article),
+                class: "button radius small" %></td>
+        <td><%= link_to 'Destroy', article, class: "button radius small",
+                method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
-
-<%= link_to 'New Article', new_article_path %>
