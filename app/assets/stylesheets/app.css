@@ -13,15 +13,36 @@
    Shared Styles
 ----------------------------------------- */
 
-
+#name {
+  font-family: 'Gruppo', cursive;
+}
 
 /* -----------------------------------------
-   Page Name 1
+   Welcome Page
 ----------------------------------------- */
+#sax {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  opacity: 0.85;
+  height: 200px;
+  width: 200px;
+}
 
+#about {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
 
+#copywrite {
+  text-align: right;
+}
 
+#info{
+  font-size: 20px;
+}
 
 /* -----------------------------------------
-   Page Name 2
+   Blog
 ----------------------------------------- */
