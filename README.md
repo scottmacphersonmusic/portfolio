@@ -1,6 +1,8 @@
 # Portfolio
 By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 
+[![Build Status](https://travis-ci.org/scottmacphersonmusic/portfolio.svg?branch=master)](https://travis-ci.org/scottmacphersonmusic/portfolio)
+
 ### Description
 A portfolio page to display my skills, thoughts, and accomplishments.
 
