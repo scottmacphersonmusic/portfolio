@@ -8,7 +8,7 @@ class WelcomePageTest < Capybara::Rails::TestCase
   end
 
   test "depoloyed app should have custom domain name" do
-    visit "https://www.scottmacphersonmusic.com/"
-    assert_content page, "Scott Macpherson"
+    visit "http://www.scottmacphersonmusic.com"
+    assert_content page, "Web developer. Musician."
   end
 end
