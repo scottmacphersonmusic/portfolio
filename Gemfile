@@ -28,6 +28,6 @@ group :production do
 end
 
 group :test do
-  gem "minitest-rails-capybara"
   gem "launchy"
+  gem "minitest-rails-capybara"
 end
