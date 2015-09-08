@@ -9,17 +9,36 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <!-- TODO: keep updating this form -->
+
+    <div class="row collapse">
+      <div class="small-3 large-2 columns">
+        <span class="prefix"><%= f.label :title %></span>
+      </div>
+      <div class="small-9 large-10 columns">
+        <%= f.text_field :title %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :body %><br> <%= f.text_field :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+</div>
 <% end %>
+
+<!-- foundation form example beneath  -->
+
+<form>
+  <div class="row collapse">
+    <div class="small-3 large-2 columns">
+      <span class="prefix">http://</span>
+    </div>
+    <div class="small-9 large-10 columns">
+      <input type="text" placeholder="Enter your URL...">
+    </div>
+  </div>
+</form>
