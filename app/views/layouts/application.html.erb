@@ -17,7 +17,15 @@
 
   <body>
     <%= render 'shared/header' %>
+
+    <% flash.each do |key, value| %>
+    <div class="alert-box round <%= flash_class(key) %>">
+      <%= value %>
+    </div>
+    <% end %>
+
     <%= yield %>
+
     <%= render 'shared/js'  %>
     <%= render 'shared/footer'%>
   </body>
