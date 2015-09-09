@@ -75,13 +75,17 @@ div#about.row {
   margin-right: auto;
 }
 
-#new_article {
+#new_article_button {
   color: #e6e6e6;
   background: #666;
   margin-left: 65%;
   margin-bottom: 1.3em;
 }
 
-#new_article:hover {
+#new_article_button:hover {
   background: #2ba6cb;
+}
+
+#new_edit_form {
+  /* color:  */
 }

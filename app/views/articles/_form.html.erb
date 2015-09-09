@@ -1,44 +1,28 @@
 <%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<% if @article.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-      <% @article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <ul>
+    <% @article.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
     <% end %>
-
-    <!-- TODO: keep updating this form -->
-
-    <div class="row collapse">
-      <div class="small-3 large-2 columns">
-        <span class="prefix"><%= f.label :title %></span>
-      </div>
-      <div class="small-9 large-10 columns">
-        <%= f.text_field :title %>
-      </div>
-    </div>
-    <div class="field">
-      <%= f.label :body %><br> <%= f.text_field :body %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+  </ul>
 </div>
 <% end %>
 
-<!-- foundation form example beneath  -->
-
-<form>
-  <div class="row collapse">
-    <div class="small-3 large-2 columns">
-      <span class="prefix">http://</span>
-    </div>
-    <div class="small-9 large-10 columns">
-      <input type="text" placeholder="Enter your URL...">
-    </div>
+<!-- TODO: keep updating this form -->
+<div class="row large-9">
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </div>
-</form>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>
