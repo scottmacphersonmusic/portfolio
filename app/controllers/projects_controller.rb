@@ -29,6 +29,8 @@ class ProjectsController < ApplicationController
   def update
     if @project.update_attributes(project_params)
       redirect_to @project, notice: 'Project successfully updated!'
+    else
+      render :edit
     end
   end
 
