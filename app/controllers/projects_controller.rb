@@ -36,13 +36,14 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to projects_path, notice: 'Project was successfully destroyed!'
+    flash[:notice] = 'Project was successfully destroyed!'
+    redirect_to projects_path
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:name, :technologies_used)
+    params.require(:project).permit(:name, :technologies_used, :image_url)
   end
 
   def set_project
