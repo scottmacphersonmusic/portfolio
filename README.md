@@ -4,7 +4,10 @@ By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 [![Build Status](https://travis-ci.org/scottmacphersonmusic/portfolio.svg?branch=master)](https://travis-ci.org/scottmacphersonmusic/portfolio)
 
 ### Description
-A portfolio page to display my skills, thoughts, and accomplishments.
+My personal website to display my skills and projects.  Includes:
+
+- Portfolio - web development and code examples
+- Blog - a venue to publish articles
 
 ### Screenshot
 ![screenshot of the blog page](/app/assets/images/blog.png)

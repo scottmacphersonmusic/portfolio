@@ -3,7 +3,8 @@
 -----------------------------------------------------
 :: Shared Styles
 :: Welcome Page
-:: Blog
+:: Blog (Articles)
+:: Portfolio (Projects)
 */
 
 /* -----------------------------------------
@@ -67,7 +68,7 @@ div#about.row {
 }
 
 /* -----------------------------------------
-   Blog
+   Blog  (Articles)
 ----------------------------------------- */
 
 #articles {
@@ -84,4 +85,18 @@ div#about.row {
 
 #new_article:hover {
   background: #2ba6cb;
+}
+
+
+/* -----------------------------------------
+   Portfolio  (Projects)
+----------------------------------------- */
+
+.project_image {
+  height: 150px;
+  width: 150px;
+  border: #2ba6cb;
+  border-style: solid;
+  border-width: thick;
+  border-radius: 15px;
 }

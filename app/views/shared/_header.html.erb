@@ -4,9 +4,11 @@
   </div>
   <div class="nine columns">
     <ul class="nav-bar right">
-      <li><a href="#" class="navlink">Music</a></li>
-      <li><a href="#" class="navlink">Code</a></li>
+      <li><%= link_to "Portfolio", projects_path ,class: "navlink" %></li>
       <li><%= link_to "Blog", articles_path, class: "navlink" %></li>
+      <li><%= link_to "Music",
+              "http://www.thefabulouspartyboys.com/video",
+              class: "navlink" %></li>
       <li><a href="#" class="navlink">Contact</a></li>
     </ul>
   </div>
