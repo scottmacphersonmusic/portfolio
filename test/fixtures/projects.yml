@@ -1,0 +1,7 @@
+hack:
+  name: Hacktastic
+  technologies_used: Ruby, Rails, Zurb, Magic
+
+zoo:
+  name: Zoo App
+  technologies_used: Ruby, Rails, Farmville API, Automilker
