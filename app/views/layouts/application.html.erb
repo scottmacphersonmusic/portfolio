@@ -17,6 +17,11 @@
 
   <body>
     <%= render 'shared/header' %>
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+
     <%= yield %>
     <%= render 'shared/js'  %>
     <%= render 'shared/footer'%>

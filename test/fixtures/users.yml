@@ -1,0 +1,10 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+scott:
+  email: scomo@example.com
+  encrypted_password: password
+
+messi:
+  email: lionel@barca.es
+  encrypted_password: password
