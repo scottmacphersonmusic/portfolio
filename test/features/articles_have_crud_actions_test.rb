@@ -1,7 +1,7 @@
 require "test_helper"
 
 feature "Articles Have Crud Actions" do
-  scenario "submit form data to create a new article" do
+  scenario "create a new article" do
     # Given that there is a new article page
     visit new_article_path
     # When I submit the form
@@ -11,6 +11,8 @@ feature "Articles Have Crud Actions" do
     # Then a new article should be created and displayed
     page.text.must_include "Article was successfully created"
     page.text.must_include "My Favorite Things"
+    page.has_css? "#author"
+    page.text.must_include users(:scott).email
   end
 
   scenario "submit form data to edit an existing article" do
