@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
+  gem 'better_errors'
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 end
