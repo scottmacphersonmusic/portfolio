@@ -8,5 +8,13 @@ require "minitest/pride"
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
-  # Add more helper methods to be used by all tests here...
+
+  def signup
+    visit "/"
+    click_on "Sign Up"
+    fill_in "Email", with: "donald@trump.sad"
+    fill_in "Password", with: "thedonald"
+    fill_in "Password confirmation", with: "thedonald"
+    click_on "Sign Up"
+  end
 end
