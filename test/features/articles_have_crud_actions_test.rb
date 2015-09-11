@@ -3,10 +3,7 @@ require "test_helper"
 feature "Articles Have Crud Actions" do
   scenario "create a new article" do
     # Given an authorized user completes a new article form
-    visit new_user_session_path
-    fill_in :Email, with: users(:scott).email
-    fill_in :Password, with: "password"
-    click_on "Log in"
+    sign_in
 
     visit new_article_path
     # When I submit the form
@@ -22,10 +19,7 @@ feature "Articles Have Crud Actions" do
 
   scenario "edit an existing article" do
     # Given an authorized user visits an articles edit page
-    visit new_user_session_path
-    fill_in :Email, with: users(:scott).email
-    fill_in :Password, with: "password"
-    click_on "Log in"
+    sign_in
 
     article = articles(:one)
     visit edit_article_path(article)
@@ -40,10 +34,7 @@ feature "Articles Have Crud Actions" do
 
   scenario "delete article" do
     # Given an authorized user visits the articles index page
-    visit new_user_session_path
-    fill_in :Email, with: users(:scott).email
-    fill_in :Password, with: "password"
-    click_on "Log in"
+    sign_in
 
     visit articles_path
     # When I click destroy
