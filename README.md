@@ -5,9 +5,20 @@ By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 
 ### Description
 A portfolio page to display my skills, thoughts, and accomplishments.
+### Features
+- Blog
+    - A page to publish articles
+- Users
+    - Secure signup/login/logout backed by [devise](https://github.com/plataformatec/devise)
+- Portfolio
+    - A venue to display projects I've worked on
+- Coming Soon:
+    - Music page with videos, recordings and transcriptions
 
 ### Screenshot
-![screenshot of the blog page](/app/assets/images/blog.png)
+Here's what the splash screen looks like at the moment:
+
+![screenshot of the splash page](/app/assets/images/splash_page.png)
 
 ### Contributing
 1. Fork It
@@ -17,11 +28,15 @@ A portfolio page to display my skills, thoughts, and accomplishments.
 5. Create new Pull Request
 
 ### Credit
-The template for this readme was inspired by
-[stephzilla](https://github.com/scottmacphersonmusic/readme)
-
 The splash photo came from https://unsplash.com/
 
 Favicon generated at http://www.favicongenerator.com/
 
 Site template found at http://foundation.zurb.com/templates.html
+
+[Brook Riggio](https://github.com/brookr) and [Kevin Townsend](https://github.com/soccerKevin) have been instrumental in debugging
+
+The template for this readme was inspired by
+[stephzilla](https://github.com/scottmacphersonmusic/readme)
+
+This README was edited at [dillinger.io](dillinger.io)
