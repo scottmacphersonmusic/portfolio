@@ -2,10 +2,14 @@
 
 <div>
   <h1 class="title">Blog</h1>
+
+  <% if current_user.present? %>
   <div>
     <%= link_to 'New Article', new_article_path,
         id: "new_article", class: "button radius" %>
   </div>
+  <% end %>
+
   <table id="articles">
     <thead>
       <tr>
@@ -20,11 +24,17 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
-        <td><%= link_to 'Show', article, class: "button radius small" %></td>
+        <td><%= link_to 'Show', article, class: "button radius small"%></td>
+
+        <% if current_user.present? &&            \
+           (current_user.role == "editor" ||      \
+           current_user.id == article.author_id) %>
         <td><%= link_to 'Edit', edit_article_path(article),
                 class: "button radius small" %></td>
         <td><%= link_to 'Destroy', article, class: "button radius small",
                 method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
       <% end %>
     </tbody>
