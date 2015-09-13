@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    authorize @article
   end
 
   # POST /articles
@@ -47,6 +48,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
+        authorize @article
         current_user.articles << @article
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
@@ -77,5 +79,10 @@ class ArticlesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
     params.require(:article).permit(:title, :body, (:published if current_user.role == "editor"))
+  end
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to articles_path
   end
 end
