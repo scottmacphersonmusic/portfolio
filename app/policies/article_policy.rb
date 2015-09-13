@@ -6,10 +6,10 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def create?
-    @user && (@user.editor? || @user.author?) ? true : false
+    user && (user.editor? || user.author?) ? true : false
   end
 
   def publish?
-    @user && @user.editor? ? true : false
+    user && user.editor? ? true : false
   end
 end

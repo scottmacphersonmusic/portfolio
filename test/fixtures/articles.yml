@@ -2,8 +2,10 @@ one:
   title: Rails
   body: Its the Rails way or the highway
   author: scott
+  published: true
 
 two:
   title: Conundrum
   body: The following setence is true. The preceding sentence is false.
   author: messi
+  published: true

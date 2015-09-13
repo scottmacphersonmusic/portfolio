@@ -3,7 +3,7 @@
 <div>
   <h1 class="title">Blog</h1>
 
-  <% if current_user.present? %>
+  <% if policy(@articles).create? %>
   <div>
     <%= link_to 'New Article', new_article_path,
         id: "new_article", class: "button radius" %>
@@ -26,9 +26,7 @@
         <td><%= article.body %></td>
         <td><%= link_to 'Show', article, class: "button radius small"%></td>
 
-        <% if current_user.present? &&                            \
-           (ArticlePolicy.new(current_user, article).publish? ||  \
-           current_user.id == article.author_id) %>
+        <% if policy(article).publish? %> --
         <td><%= link_to 'Edit', edit_article_path(article),
                 class: "button radius small" %></td>
         <td><%= link_to 'Destroy', article, class: "button radius small",
