@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
+
+  def author?
+    role == "author"
+  end
+
+  def editor?
+    role == "editor"
+  end
 end
