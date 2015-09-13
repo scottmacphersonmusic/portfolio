@@ -53,7 +53,6 @@ feature "Articles Have Crud Actions" do
   scenario "unauthenticated users cannot see new article button" do
     # When I visit the blog index page as a visitor
     visit articles_path
-    save_and_open_page
     # Then I should not see the "New Article" button
     page.wont_have_link "New Article"
   end

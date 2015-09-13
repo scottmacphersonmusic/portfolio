@@ -26,8 +26,8 @@
         <td><%= article.body %></td>
         <td><%= link_to 'Show', article, class: "button radius small"%></td>
 
-        <% if current_user.present? &&            \
-           (current_user.role == "editor" ||      \
+        <% if current_user.present? &&                            \
+           (ArticlePolicy.new(current_user, article).publish? ||  \
            current_user.id == article.author_id) %>
         <td><%= link_to 'Edit', edit_article_path(article),
                 class: "button radius small" %></td>

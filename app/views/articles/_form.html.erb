@@ -21,7 +21,7 @@
     <%= f.text_field :body %>
   </div>
 
-  <% if current_user.role == "editor" %>
+  <% if ArticlePolicy.new(current_user, @article).publish? %>
   <div class="row collapse">
     <div class="small-3 columns">
       <%= f.label :published, class: "right inline", title: "Is this article published?", data: {tooltip: true } %>
