@@ -115,6 +115,19 @@ feature "Options for using the site vary based on user role" do
     page.must_have_content "Unpublished Article"
   end
 
+  scenario "editor can create articles" do
+    # Given an editor's account
+    sign_in(:editor)
+    # When I fill out and submit a new article
+    visit new_article_path
+    fill_in "Title", with: "Messi vs Ronaldo"
+    fill_in "Body", with: "there is no competition"
+    click_on "Create Article"
+    # It gets created
+    page.must_have_content "Article was successfully created."
+    page.must_have_content "Messi vs Ronaldo"
+  end
+
   scenario "editors can edit articles" do
     # Given an editor's account
     sign_in(:editor)
