@@ -23,6 +23,18 @@ feature "Options for using the site vary based on user role" do
     page.must_have_content "Its the Rails way or the highway"
   end
 
+  scenario "visitors cant edit or delete articles" do
+    # When I visit the article index page
+    visit articles_path
+    # Then I don't have any options to edit or delete
+    page.wont_have_link "Edit"
+    page.wont_have_link "Destroy"
+    # And the show page doesn't either
+    page.find('tbody tr:last').click_on "Show"
+    page.wont_have_link "Edit"
+    page.wont_have_link "Destroy"
+  end
+
   # ----- Authors -----
   scenario "authors can create articles" do
     # Given an author's account
