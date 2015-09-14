@@ -15,6 +15,14 @@ feature "Options for using the site vary based on user role" do
     page.wont_have_link "New Article"
   end
 
+  scenario "unauthenticated users can view published articles" do
+    # When I click show on an article
+    visit articles_path
+    page.find('tbody tr:last').click_on "Show"
+    # Then I can view that article's show page
+    page.must_have_content "Its the Rails way or the highway"
+  end
+
   # ----- Authors -----
   scenario "authors can create articles" do
     # Given an author's account
