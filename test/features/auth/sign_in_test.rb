@@ -13,6 +13,6 @@ feature "Users can sign in" do
     Capybara.current_session.driver.request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:twitter]
 
     click_on "Sign in with Twitter"
-    page.must_have_content "Logged in as test_twitter_user"
+    page.must_have_content "Signed in as test_twitter_user"
   end
 end

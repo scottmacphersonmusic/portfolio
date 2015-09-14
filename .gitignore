@@ -18,3 +18,9 @@
 
 # Ignore coverage
 coverage
+
+# Ignore foreman procfile
+Procfile.dev
+
+# Ignore .env
+.env
