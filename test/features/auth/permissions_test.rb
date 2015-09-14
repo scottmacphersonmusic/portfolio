@@ -26,7 +26,6 @@ feature "Options for using the site vary based on user role" do
     fill_in "Body", with: "such tasty"
     click_on "Create Article"
     # Then a new article is created
-    save_and_open_page
     page.must_have_content "Article was successfully created."
     page.must_have_content "Food Trucks"
   end
@@ -63,6 +62,16 @@ feature "Options for using the site vary based on user role" do
     # Then I am redirected and given a notice
     current_path.must_equal articles_path
     page.must_have_content "You are not authorized to perform this action."
+  end
+
+  scenario "authors cant delete articles" do
+    # Given an author's account
+    sign_in(:author)
+    # When I visit an article page
+    article = articles(:published)
+    visit article_path(article)
+    # Then there is no option to delete
+    page.wont_have_link "Delete"
   end
 
   # ----- Editors -----

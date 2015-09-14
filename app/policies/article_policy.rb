@@ -25,6 +25,10 @@ class ArticlePolicy < ApplicationPolicy
     end
   end
 
+  def destroy?
+    user && user.editor?
+  end
+
   def publish?
     user && user.editor? ? true : false
   end
