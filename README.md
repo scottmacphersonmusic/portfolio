@@ -11,10 +11,12 @@ A portfolio page to display my skills, thoughts, and accomplishments.
     - A page to publish articles
 - Users
     - Secure signup/login/logout backed by [devise](https://github.com/plataformatec/devise)
+    - Authorization with [pundit](https://github.com/elabs/pundit)
 - Portfolio
     - A venue to display projects I've worked on
 - Coming Soon:
     - Music page with videos, recordings and transcriptions
+
 
 ### Screenshot
 Here's what the splash screen looks like at the moment:
