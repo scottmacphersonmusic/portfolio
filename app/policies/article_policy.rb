@@ -1,15 +1,13 @@
 class ArticlePolicy < ApplicationPolicy
   attr_reader :user, :article
 
-  class Scope < Scope
-    def resolve
-      scope
-    end
-  end
-
   def initialize(user, article)
     @user = user
     @article = article
+  end
+
+  def publish?
+    user && user.editor? ? true : false
   end
 
   def create?
@@ -29,7 +27,15 @@ class ArticlePolicy < ApplicationPolicy
     user && user.editor?
   end
 
-  def publish?
-    user && user.editor? ? true : false
+  class Scope < Scope
+    def resolve
+      if user && user.editor?
+        scope.all
+      elsif user && user.author?
+        scope.where(author_id: user.id)
+      else
+        scope.where(published: true)
+      end
+    end
   end
 end

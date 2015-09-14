@@ -34,6 +34,7 @@
         <% if policy(article).destroy? %>
         <td><%= link_to 'Destroy', article, class: "button radius small",
                 method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
         <% end %>
 
       </tr>
@@ -41,5 +42,4 @@
     </tbody>
   </table>
 </div>
-
-<br>
+<br> --

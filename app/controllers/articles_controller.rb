@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = policy_scope(Article)
   end
 
   # GET /articles/1

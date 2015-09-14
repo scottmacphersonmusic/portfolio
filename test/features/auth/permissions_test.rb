@@ -30,6 +30,17 @@ feature "Options for using the site vary based on user role" do
     page.must_have_content "Food Trucks"
   end
 
+  scenario "authors can only see their own articles" do
+    # Given an author's account
+    sign_in(:author)
+    # When I visit the article index
+    visit articles_path
+    # Only my articles are shown
+    page.must_have_content "Conundrum"
+    page.must_have_content "Unpublished Article"
+    page.wont_have_content "Rails"
+  end
+
   scenario "authors can't publish" do
     # Given an author's account
     sign_in(:author)
@@ -92,5 +103,15 @@ feature "Options for using the site vary based on user role" do
     click_on "Create Article"
     # Then the published article should be shown
     page.text.must_include "Status: Published"
+  end
+
+  scenario "editors can see all articles published or not" do
+    # Given an editor's account
+    sign_in(:editor)
+    # When I visit the article index page
+    visit articles_path
+    # Then I see all posts whether they are published or not
+    page.must_have_content "Conundrum"
+    page.must_have_content "Unpublished Article"
   end
 end
