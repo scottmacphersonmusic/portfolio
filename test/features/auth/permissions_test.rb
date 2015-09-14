@@ -35,6 +35,14 @@ feature "Options for using the site vary based on user role" do
     page.wont_have_link "Destroy"
   end
 
+  scenario "visitors only see published articles" do
+    # When I visit the article index page
+    visit articles_path
+    # Then I can only see published articles
+    page.must_have_content "Conundrum"
+    page.wont_have_content "Unpublished Article"
+  end
+
   # ----- Authors -----
   scenario "authors can create articles" do
     # Given an author's account
