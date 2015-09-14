@@ -2,36 +2,32 @@ class ArticlePolicy < ApplicationPolicy
   attr_reader :user, :article
 
   def initialize(user, article)
-    @user = user
+    @user = user || NullUser.new
     @article = article
   end
 
   def publish?
-    user && user.editor? ? true : false
+    user.editor?
   end
 
   def create?
-    user && (user.editor? || user.author?) ? true : false
+    user.editor? || user.author?
   end
 
   def update?
-    if user
-      return true if user.editor? || (user.id == article.author_id &&
-                                      article.published == false)
-    else
-      false
-    end
+    user.editor? || (user.id == article.author_id &&
+                     article.published == false)
   end
 
   def destroy?
-    user && user.editor?
+    user.editor?
   end
 
   class Scope < Scope
     def resolve
-      if user && user.editor?
+      if user.editor?
         scope.all
-      elsif user && user.author?
+      elsif user.author?
         scope.where(author_id: user.id)
       else
         scope.where(published: true)
@@ -39,3 +35,11 @@ class ArticlePolicy < ApplicationPolicy
     end
   end
 end
+
+# class NullUser
+#   def editor?
+#     false
+#   end
+# end   - put this in the user class, initialize policy with `user || NullUser.new`
+#       - needs to cover all the methods that are called on user and return false
+#       - get rid of all the additional `user &&...` checks
