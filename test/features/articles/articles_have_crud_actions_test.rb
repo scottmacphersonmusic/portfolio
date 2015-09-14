@@ -3,7 +3,7 @@ require "test_helper"
 feature "Articles Have Crud Actions" do
   scenario "create a new article" do
     # Given an authorized user completes a new article form
-    sign_in
+    sign_in(:author)
 
     visit new_article_path
     # When I submit the form
@@ -14,7 +14,8 @@ feature "Articles Have Crud Actions" do
     page.text.must_include "Article was successfully created"
     page.text.must_include "My Favorite Things"
     page.has_css? "#author"
-    page.text.must_include users(:scott).email
+    page.text.must_include users(:author).email
+    page.text.must_include "Status: Unpublished"
   end
 
   scenario "edit an existing article" do
@@ -35,12 +36,11 @@ feature "Articles Have Crud Actions" do
   scenario "delete article" do
     # Given an authorized user visits the articles index page
     sign_in
-
     visit articles_path
     # When I click destroy
     page.find('tbody tr:last').click_on "Destroy"
     # Then the article is destroyed
     page.must_have_content "Article was successfully destroyed."
-    page.wont_have_content "or the highway"
+    page.wont_have_content "Its the Rails way or the highway"
   end
 end

@@ -3,11 +3,13 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'coffee-rails', '~> 4.1.0'
+gem 'coveralls', require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'minitest-rails'
+gem 'pundit'
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks'
@@ -32,4 +34,5 @@ end
 group :test do
   gem "launchy"
   gem "minitest-rails-capybara"
+  gem "simplecov"
 end

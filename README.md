@@ -2,6 +2,7 @@
 By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 
 [![Build Status](https://travis-ci.org/scottmacphersonmusic/portfolio.svg?branch=master)](https://travis-ci.org/scottmacphersonmusic/portfolio)
+[![Coverage Status](https://coveralls.io/repos/scottmacphersonmusic/portfolio/badge.svg?branch=master&service=github)](https://coveralls.io/github/scottmacphersonmusic/portfolio?branch=master)
 
 ### Description
 A portfolio page to display my skills, thoughts, and accomplishments.
@@ -10,10 +11,12 @@ A portfolio page to display my skills, thoughts, and accomplishments.
     - A page to publish articles
 - Users
     - Secure signup/login/logout backed by [devise](https://github.com/plataformatec/devise)
+    - Authorization with [pundit](https://github.com/elabs/pundit)
 - Portfolio
     - A venue to display projects I've worked on
 - Coming Soon:
     - Music page with videos, recordings and transcriptions
+
 
 ### Screenshot
 Here's what the splash screen looks like at the moment:

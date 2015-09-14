@@ -2,10 +2,14 @@
 
 <div>
   <h1 class="title">Blog</h1>
+
+  <% if policy(@articles).create? %>
   <div>
     <%= link_to 'New Article', new_article_path,
         id: "new_article", class: "button radius" %>
   </div>
+  <% end %>
+
   <table id="articles">
     <thead>
       <tr>
@@ -20,15 +24,22 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
-        <td><%= link_to 'Show', article, class: "button radius small" %></td>
+        <td><%= link_to 'Show', article, class: "button radius small"%></td>
+
+        <% if policy(article).update? %>
         <td><%= link_to 'Edit', edit_article_path(article),
                 class: "button radius small" %></td>
+        <% end %>
+
+        <% if policy(article).destroy? %>
         <td><%= link_to 'Destroy', article, class: "button radius small",
                 method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% end %>
+
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-
-<br>
+<br> --
