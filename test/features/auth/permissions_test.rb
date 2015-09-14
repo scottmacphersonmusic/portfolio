@@ -16,6 +16,21 @@ feature "Options for using the site vary based on user role" do
   end
 
   # ----- Authors -----
+  scenario "authors can create articles" do
+    # Given an author's account
+    sign_in(:author)
+    # When I visit the new article page and submit
+    visit articles_path
+    click_on "New Article"
+    fill_in "Title", with: "Food Trucks"
+    fill_in "Body", with: "such tasty"
+    click_on "Create Article"
+    # Then a new article is created
+    save_and_open_page
+    page.must_have_content "Article was successfully created."
+    page.must_have_content "Food Trucks"
+  end
+
   scenario "authors can't publish" do
     # Given an author's account
     sign_in(:author)
@@ -42,7 +57,6 @@ feature "Options for using the site vary based on user role" do
   scenario "authors cant update their own articles if published" do
     # Given an author's account
     sign_in(:author)
-    visit articles_path
     # When I try to visit the edit page of my published article
     article = articles(:published)
     visit edit_article_path(article)
