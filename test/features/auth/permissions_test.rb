@@ -114,4 +114,17 @@ feature "Options for using the site vary based on user role" do
     page.must_have_content "Conundrum"
     page.must_have_content "Unpublished Article"
   end
+
+  scenario "editors can edit articles" do
+    # Given an editor's account
+    sign_in(:editor)
+    # When I edit an article and submit
+    article = articles(:published)
+    visit edit_article_path(article)
+    fill_in "Title", with: "Edited Article"
+    click_on "Update Article"
+    # Then the article is edited
+    page.must_have_content "Article was successfully updated."
+    page.must_have_content "Edited Article"
+  end
 end
