@@ -72,6 +72,9 @@ feature "Options for using the site vary based on user role" do
     visit article_path(article)
     # Then there is no option to delete
     page.wont_have_link "Delete"
+    # There also wont be delete links on the index view
+    visit articles_path
+    page.wont_have_link "Delete"
   end
 
   # ----- Editors -----
