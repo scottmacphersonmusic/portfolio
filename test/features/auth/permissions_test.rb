@@ -140,4 +140,16 @@ feature "Options for using the site vary based on user role" do
     page.must_have_content "Article was successfully updated."
     page.must_have_content "Edited Article"
   end
+
+  scenario "editors can delete articles" do
+    # Given an editor's account
+    sign_in(:editor)
+    # When I go to an article page and click destroy
+    article = articles(:published)
+    visit article_path(article)
+    click_on "Destroy"
+    # It gets deleted
+    page.must_have_content "Article was successfully destroyed"
+    page.wont_have_content "Conundrum"
+  end
 end
