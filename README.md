@@ -2,6 +2,7 @@
 By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 
 [![Build Status](https://travis-ci.org/scottmacphersonmusic/portfolio.svg?branch=master)](https://travis-ci.org/scottmacphersonmusic/portfolio)
+[![Coverage Status](https://coveralls.io/repos/scottmacphersonmusic/portfolio/badge.svg?branch=master&service=github)](https://coveralls.io/github/scottmacphersonmusic/portfolio?branch=master)
 
 ### Description
 A portfolio page to display my skills, thoughts, and accomplishments.
