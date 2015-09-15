@@ -12,7 +12,7 @@ feature "Users can sign in" do
     Capybara.current_session.driver.request.env['devise.mapping'] = Devise.mappings[:user]
     Capybara.current_session.driver.request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:twitter]
 
-    click_on "Sign in with Twitter"
+    click_on "Sign In with Twitter"
     page.must_have_content "Signed in as test_twitter_user"
   end
 end

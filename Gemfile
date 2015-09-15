@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'coveralls', require: false
 gem 'devise'
@@ -18,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'better_errors'
+  gem 'pry-rails'
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 end
@@ -35,5 +37,6 @@ end
 group :test do
   gem "launchy"
   gem "minitest-rails-capybara"
+  gem 'pry-rails'
   gem "simplecov"
 end
