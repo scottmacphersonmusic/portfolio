@@ -1,14 +1,11 @@
-<div id="about" class="row">
-  <div class="four columns">
-    <img id="sax" src="<%= asset_path "sax_painting.jpg" %>" />
-  </div>
-  <div class="eight columns">
-    <div class="row">
-      <div class="six columns">
-        <p id="info">Web developer. Musician.</p>
-      </div>
+<div class="hero">
+  <div class="row">
+    <div class="large-12 columns intro-text">
+      <p>Web Developer<br>Musician</p>
     </div>
   </div>
-  <div id="welcome_spacer">
-  </div>
 </div>
+
+<%= render 'shared/about' %>
+
+<%= render 'shared/contact' %>

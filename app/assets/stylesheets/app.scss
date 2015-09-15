@@ -10,6 +10,11 @@
    Shared Styles
 ----------------------------------------- */
 
+nav.top-bar.navbar {
+  background: rgba(34, 34, 34, 0.79);
+  margin: 0px;
+}
+
 #name {
   font-family: 'Gruppo', cursive;
   font-size: 25px !important;
@@ -37,56 +42,40 @@
   background: #2ba6cb;
 }
 
-#footer {
-  color: white;
-}
-
 /* -----------------------------------------
    Welcome Page
 ----------------------------------------- */
-#sax {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 15px;
-  opacity: 0.85;
-  height: 200px;
-  width: 200px;
+
+div.hero {
+  background-image: image-url('cascadia.jpeg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-y: 70%;
+  height: 800px;
 }
 
-#about {
-  margin-top: 50px;
-  margin-bottom: 80px;
+div.large-12.columns.intro-text {
+  font-family: 'Gruppo', cursive !important;
+  margin-top: 10%;
+  margin-left: 38%
 }
 
-div#about.row {
-  margin-bottom: 0%
-}
-
-#info{
-  font-size: 20px;
-}
-
-#welcome_spacer {
-  margin-bottom: 80%;
-}
-
-/* -----------------------------------------
+ /* -----------------------------------------
    Blog
 ----------------------------------------- */
 
-#articles {
-  margin-left: auto;
-  margin-right: auto;
-}
+/* #articles { */
+/*   margin-left: auto; */
+/*   margin-right: auto; */
+/* } */
 
-#new_article {
-  color: #e6e6e6;
-  background: #666;
-  margin-left: 65%;
-  margin-bottom: 1.3em;
-}
+/* #new_article { */
+/*   color: #e6e6e6; */
+/*   background: #666; */
+/*   margin-left: 65%; */
+/*   margin-bottom: 1.3em; */
+/* } */
 
-#new_article:hover {
-  background: #2ba6cb;
-}
+/* #new_article:hover { */
+/*   background: #2ba6cb; */
+/* } */
