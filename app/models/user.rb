@@ -15,15 +15,6 @@ class User < ActiveRecord::Base
     role == "editor"
   end
 
-  # def self.from_omniauth(auth)
-  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-  #     user.provider = auth.provider
-  #     user.uid = auth.uid
-  #     user.name = auth.info.nickname
-  #     user.email = "#{user.name}-CHANGEME@twitter.example.com"
-  #   end
-  # end
-
   def self.from_omniauth(auth)
     auth_search = { email: auth.info.email }
 
