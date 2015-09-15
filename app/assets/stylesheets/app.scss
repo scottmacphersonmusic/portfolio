@@ -64,18 +64,13 @@ div.large-12.columns.intro-text {
    Blog
 ----------------------------------------- */
 
-/* #articles { */
-/*   margin-left: auto; */
-/*   margin-right: auto; */
-/* } */
+#new_article {
+  color: #e6e6e6;
+  background: #666;
+  margin-left: 65%;
+  margin-bottom: 1.3em;
+}
 
-/* #new_article { */
-/*   color: #e6e6e6; */
-/*   background: #666; */
-/*   margin-left: 65%; */
-/*   margin-bottom: 1.3em; */
-/* } */
-
-/* #new_article:hover { */
-/*   background: #2ba6cb; */
-/* } */
+#new_article:hover {
+  background: #2ba6cb;
+}

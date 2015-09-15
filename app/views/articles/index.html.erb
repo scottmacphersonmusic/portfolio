@@ -10,36 +10,43 @@
   </div>
   <% end %>
 
-  <table id="articles">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= link_to 'Show', article, class: "button radius small"%></td>
-
-        <% if policy(article).update? %>
-        <td><%= link_to 'Edit', edit_article_path(article),
-                class: "button radius small" %></td>
-        <% end %>
-
-        <% if policy(article).destroy? %>
-        <td><%= link_to 'Destroy', article, class: "button radius small",
-                method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-        <% end %>
-
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>
-<br> --
+
+<br>
+
+<div class="row">
+  <div class="large-6 columns">
+
+    <% @articles.each do |article| %>
+
+    <div class="row">
+      <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
+      <div class="large-10 columns">
+
+        <p><strong><%= article.title %></strong><br><%= article.body %></p>
+        <ul class="inline-list">
+          <!-- <li><a href="">Reply</a></li> -->
+          <!-- <li><a href="">Share</a></li> -->
+          <li><%= link_to("Show", article_path(article), class:
+                  "button radius small") %></li>
+
+          <% if policy(article).update? %>
+          <li><%= link_to('Edit', edit_article_path(article),
+                  class: "button radius small") %></li>
+          <% end %>
+
+          <% if policy(article).destroy? %>
+          <li><%= link_to('Destroy', article, class: "button radius small",
+                  method: :delete, data: { confirm: 'Are you sure?'})%></li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <% end %>
+  </div>
+</div>
