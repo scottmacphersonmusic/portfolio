@@ -10,7 +10,6 @@ gem 'foundation-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'minitest-rails'
-gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'pry-rails', :group => [:development, :test]
 gem 'pundit'
