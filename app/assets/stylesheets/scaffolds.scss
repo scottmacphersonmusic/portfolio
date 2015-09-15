@@ -182,8 +182,11 @@ hr{
   opacity:0.8;
 }
 
-#notice {
-  color: green;
+.notice {
+  background: green;
+  height: 30px;
+  text-align: center;
+  font-size: 15pt;
 }
 
 .field_with_errors {
