@@ -3,8 +3,10 @@ require "test_helper"
 feature "Theme Is Present" do
   scenario "the expected stylesheets are present" do
     visit root_path
-    styles = %w(app foundation)
-    styles.each { |s| page.html.must_include s }
+    save_and_open_page
+    base = "/assets/"
+    styles = %w(app foundation foundation_and_overrides scaffolds)
+    styles.each { |s| page.html.must_have_content base + s }
   end
 
   scenario "the expected javascript files are present" do

@@ -34,11 +34,11 @@ feature "Articles Have Crud Actions" do
   end
 
   scenario "delete article" do
-    # Given an authorized user visits the articles index page
+    # Given an authorized user visits an article show page
     sign_in
-    visit articles_path
+    visit article_path(articles(:one))
     # When I click destroy
-    page.find('tbody tr:last').click_on "Destroy"
+    click_on "Destroy"
     # Then the article is destroyed
     page.must_have_content "Article was successfully destroyed."
     page.wont_have_content "Its the Rails way or the highway"
