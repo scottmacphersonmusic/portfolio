@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'minitest-rails'
 gem 'omniauth-twitter'
+gem 'omniauth-github'
+gem 'pry-rails', :group => [:development, :test]
 gem 'pundit'
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'
@@ -19,7 +21,6 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'better_errors'
-  gem 'pry-rails'
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 end
@@ -37,6 +38,5 @@ end
 group :test do
   gem "launchy"
   gem "minitest-rails-capybara"
-  gem 'pry-rails'
   gem "simplecov"
 end

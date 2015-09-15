@@ -236,6 +236,11 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :github, Rails.application.secrets.github_id, Rails.application.secrets.github_secret, {
+      :client_options => {
+        redirect_uri: 'https://github.YOURDOMAIN.com/api/v3'
+                    }
+                  }
   config.omniauth :twitter, Rails.application.secrets.twitter_key, Rails.application.secrets.twitter_secret
 
   # ==> Warden configuration
