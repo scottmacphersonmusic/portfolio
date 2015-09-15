@@ -1,18 +1,31 @@
-<div id="authentication">
-<% if user_signed_in? %>
-  <%= current_user.email %>
-  <%= link_to "Log Out", destroy_user_session_path,
-      method: :delete %>
+<ul class="right">
+  <li class="has-dropdown">
+  <% if user_signed_in? %>
+    <a href="#"><%= current_user.email %></a>
+    <ul class="dropdown">
+      <li><%= link_to("Sign Out", destroy_user_session_path,
+              method: :delete, class: "navlink") %>
+      </li>
+    </ul>
 
-<% else %>
-  <% unless params[:controller] == "devise/registrations" && params[:action] == "new" %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-  <% end %>
+  <% else %>
+    <a href="#">Guest</a>
+    <ul class="dropdown">
+      <% unless (params[:controller] == "devise/registrations" &&
+         params[:action] == "new") %>
+        <li><%= link_to("Sign Up", new_user_registration_path,
+              class: "navlink") %></li>
+      <% end %>
 
-  <% unless params[:controller] == "devise/sessions" && params[:action] == "new" %>
-    <%= link_to "Login", new_user_session_path %>
-  <% end %>
+      <% unless (params[:controller] == "devise/sessions" &&
+         params[:action] == "new") %>
+        <li><%= link_to "Sign In", new_user_session_path, class: "navlink" %></li>
+      <% end %>
 
-  <%= link_to "Sign in with Twitter", user_omniauth_callback_path(:twitter) %>
+      <li><%= link_to("Sign in with Twitter",
+            user_omniauth_callback_path(:twitter), class: "navlink") %>
+      </li>
+    </ul>
   <% end %>
-</div>
+  </li>
+</ul>

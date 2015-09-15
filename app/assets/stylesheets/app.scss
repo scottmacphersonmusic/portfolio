@@ -12,15 +12,20 @@
 
 #name {
   font-family: 'Gruppo', cursive;
+  font-size: 25px !important;
+}
+
+#name:hover {
+  background: #2ba6cb;
+}
+
+.navlink:hover {
+  background: #2ba6cb !important;
 }
 
 .title {
   font-family: 'Gruppo', cursive;
   margin-left: 10%
-}
-
-.navlink:hover {
-  background: #2ba6cb;
 }
 
 .button.radius.small {
