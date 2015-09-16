@@ -12,7 +12,7 @@ feature "Editors have complete access to the site" do
     # There is a checkbox for 'Published'
     page.must_have_field('Published')
     # When I submit the form
-    fill_in "Title",  with: articles(:one).title
+    fill_in "Title", with: articles(:one).title
     fill_in "Body", with: articles(:one).body
     check "Published"
     click_on "Create Article"

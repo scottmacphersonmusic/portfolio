@@ -1,19 +1,14 @@
 require "test_helper"
 
-feature "Theme Is Present" do
-  scenario "the expected stylesheets are present" do
+feature "Theme/Template Is Present" do
+  scenario "zurb css classes are present" do
     visit root_path
-    styles = %w(app foundation)
-    styles.each { |s| page.html.must_include s }
+    classes = %w(nav.top-bar ul.title-area div.hero div.row div.columns)
+    classes.each { |c| page.must_have_css(c) }
   end
 
   scenario "the expected javascript files are present" do
     visit root_path
-    base = "jquery.foundation."
-    a = %w(accordion.js alerts.js buttons.js clearing.js forms.js joyride.js)
-    b =  %w(magellan.js mediaQueryToggle.js navigation.js orbit.js reveal.js)
-    c =  %w(tabs.js tooltips.js topbar.js)
-    js = a + b + c
-    js.each { |s| page.html.must_include base + s }
+    page.html.must_include "modernizr"
   end
 end

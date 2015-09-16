@@ -1,20 +1,18 @@
-<nav>
-  <div class="row">
-    <div class="five columns">
-      <a href="<%= root_path %>">
-        <h2 id="name">Scott Macpherson</h2>
-      </a>
-    </div>
-  <div class="five right">
-    <ul class="nav-bar right">
-      <li><a href="#" class="navlink">Music</a></li>
-      <li><a href="#" class="navlink">Code</a></li>
-      <li><%= link_to "Blog", articles_path, class: "navlink" %></li>
-      <li><a href="#" class="navlink">Contact</a></li>
-    </ul>
-  </div>
+<nav class="top-bar navbar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1>
+        <%= link_to "Scott Macpherson", root_path, id: "name" %>
+      </h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
 
     <%= render 'shared/signup_login_logout' %>
 
-  </div>
+    <%= render 'shared/sections' %>
+
+  </section>
 </nav>

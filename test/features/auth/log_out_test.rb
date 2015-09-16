@@ -5,7 +5,7 @@ feature "As the site owner, I want to sign out a user to prevent fraud" do
     # Given a user is signed in
     sign_up
     # When they click log out
-    click_on "Log Out"
+    click_on "Sign Out"
     # Then they will be logged out
     page.must_have_content "Signed out successfully."
   end

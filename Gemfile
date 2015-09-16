@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'coveralls', require: false
 gem 'devise'
@@ -9,6 +10,8 @@ gem 'foundation-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'minitest-rails'
+gem 'omniauth-github'
+gem 'pry-rails', :group => [:development, :test]
 gem 'pundit'
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'

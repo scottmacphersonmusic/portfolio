@@ -1,15 +1,20 @@
-<% if user_signed_in? %>
-  <%= current_user.email %>
-  <%= link_to "Log Out", destroy_user_session_path,
-      method: :delete %>
+<ul class="right">
+  <li class="has-dropdown">
+  <% if user_signed_in? %>
+    <a href="#"><%= current_user.email %></a>
+    <ul class="dropdown">
+      <li><%= link_to("Sign Out", destroy_user_session_path,
+              method: :delete, class: "navlink") %>
+      </li>
+    </ul>
 
-<% else %>
-  <% unless params[:controller] == "devise/registrations" && params[:action] == "new" %>
-    <%= link_to "Sign Up", new_user_registration_path %>
+  <% else %>
+    <a href="#">Guest</a>
+    <ul class="dropdown">
+
+      <%=  render 'devise/shared/links' %>
+
+    </ul>
   <% end %>
-
-  <% unless params[:controller] == "devise/sessions" && params[:action] == "new" %>
-    <%= link_to "Login", new_user_session_path %>
-  <% end %>
-
-<% end %>
+  </li>
+</ul>
