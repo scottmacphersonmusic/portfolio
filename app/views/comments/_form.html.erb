@@ -1,0 +1,33 @@
+<%= form_for [@article, @comment] do |f| %>
+
+  <div class="field">
+    <%= f.label :commenter_name %><br>
+    <%= f.text_field :commenter_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :commenter_email  %><br>
+    <%= f.text_field :commenter_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :commenter_url %><br>
+    <%= f.text_field :commenter_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+
+  <% if current_user && current_user.editor? %>
+    <div class="field">
+      Approved: <%= f.check_box :approved %>
+    </div>
+  <% end %>
+
+   <div class="actions">
+    <%= f.submit 'Submit Comment' %>
+  </div>
+
+<% end %>

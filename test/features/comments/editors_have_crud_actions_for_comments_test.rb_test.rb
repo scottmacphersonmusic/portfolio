@@ -19,24 +19,18 @@ feature "Editors have crud actions for comments" do
     page.must_have_content "Great point!"
   end
 
-  # scenario "editors can see edit and delete links" do
-  #   # When I visit an article show page with an existing comment
-  #   visit article_path(articles(:one))
-  #   # Then I should see edit and delete links
-  #   # edit link count should be 3
-  #   # destroy link count should be
-  # end
-
-  # scenario "editors can edit/approve comments" do
-  #   # Given an article edit form
-  #   visit edit_article_comment_path(articles(:one), comments(:rails))
-  #   # When I click approved and submit
-  #   check("Approved")
-  #   click_on "Update Comment"
-  #   # Then the comment is approved
-  #   page.must_have_content "Comment has been approved"
-  #   page.must_have_content "comment content - see fixture"
-  # end
+  scenario "editors can edit/approve comments" do
+    # Given an article edit form
+    visit edit_article_comment_path(articles(:one), comments(:rails))
+    # When I click approved and submit
+    fill_in "Commenter name", with: 'Oba'
+    check("comment_approved")
+    click_on "Submit Comment"
+    # Then the comment is approved
+    save_and_open_page
+    page.must_have_content "Comment was successfully updated."
+    page.must_have_content "Oba"
+  end
 
   # scenario "editors can destroy comments" do
   #   # Given an article page with a comment

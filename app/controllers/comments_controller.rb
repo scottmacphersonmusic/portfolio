@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_article, only: [:new, :create]
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :set_article, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def new
     @comment = Comment.new
@@ -9,12 +9,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create(comment_params)
     if @comment.save
-      @comment.approved = false
       @article.comments << @comment
       flash[:notice] = "Comment has been submitted to the editor for approval."
       redirect_to @article
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -24,8 +23,15 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.find(params[:id])
+    @comment = @article.comments.build(comment_params)
     authorize @comment
+    if @comment.save
+      @article.comments.delete(params[:id])
+      flash[:notice] = "Comment was successfully updated."
+      redirect_to @article
+    else
+      render :new
+    end
   end
 
   private

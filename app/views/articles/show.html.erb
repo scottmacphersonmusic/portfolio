@@ -42,7 +42,7 @@
 <br/><br/>
 
 <ul>
-  <% policy_scope(@comments).each do |comment| %>
+  <% policy_scope(@comments).order(created_at: :desc).each do |comment| %>
     <li><%= comment.commenter_name %> |
     <%= comment.commenter_email %>
     <% if comment.commenter_url %>
@@ -50,10 +50,15 @@
             %>
     <% end %>
     </li>
+    <p><%= comment.content %></p><br/>
     <% if current_user && current_user.editor? %>
-      <li>Approved: <%= comment.approved %></li>
+      Approved: <%= comment.approved %><br/>
+      <%= link_to "Edit", edit_article_comment_path(@article,
+          comment), class: "button radius small" %>
+      <%= link_to "Delete", article_comment_path(@article, comment),
+          method: :delete, data: { confirm: 'Are you sure?' },
+          class: "button radius small" %>
     <% end %>
-    <p><%= comment.content %></p>
     <hr/>
   <% end %>
 </ul>
