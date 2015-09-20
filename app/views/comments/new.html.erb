@@ -1,0 +1,29 @@
+<h1>New Comment</h1>
+
+<%= form_for [@article, @comment] do |f| %>
+
+  <div class="field">
+    <%= f.label :commenter_name, 'Name' %><br>
+    <%= f.text_field :commenter_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :commenter_email, 'Email' %><br>
+    <%= f.text_field :commenter_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :commenter_url, 'URL' %><br>
+    <%= f.text_field :commenter_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, 'Comment' %><br>
+    <%= f.text_area :content %>
+  </div>
+
+   <div class="actions">
+    <%= f.submit 'Submit Comment' %>
+  </div>
+
+<% end %>

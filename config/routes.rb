@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :comments
+  get 'comments/new'
+
+  get 'comments/edit'
+
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   root 'welcome#index'
 end
