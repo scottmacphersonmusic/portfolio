@@ -38,7 +38,7 @@ feature "Articles Have Crud Actions" do
     sign_in
     visit article_path(articles(:one))
     # When I click destroy
-    click_on "Destroy"
+    click_link('article_destroy')
     # Then the article is destroyed
     page.must_have_content "Article was successfully destroyed."
     page.wont_have_content "Its the Rails way or the highway"

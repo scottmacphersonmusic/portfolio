@@ -35,11 +35,3 @@ class ArticlePolicy < ApplicationPolicy
     end
   end
 end
-
-# class NullUser
-#   def editor?
-#     false
-#   end
-# end   - put this in the user class, initialize policy with `user || NullUser.new`
-#       - needs to cover all the methods that are called on user and return false
-#       - get rid of all the additional `user &&...` checks

@@ -10,6 +10,7 @@ A portfolio page to display my skills, thoughts, and accomplishments.
 ### Features
 - Blog
     - A page to publish articles
+    - NEW FEATURE! You can now add comments to blog articles
 - Users
     - Secure signup/login/logout backed by [devise](https://github.com/plataformatec/devise)
     - Authorization with [pundit](https://github.com/elabs/pundit)
@@ -17,12 +18,13 @@ A portfolio page to display my skills, thoughts, and accomplishments.
     - A venue to display projects I've worked on
 - Coming Soon:
     - Music page with videos, recordings and transcriptions
+    - Comments on portfolio projects
 
 
 ### Screenshot
 Here's what the splash screen looks like at the moment:
 
-![screenshot of the splash page](/app/assets/images/splash_page.png)
+![screenshot of the splash page](/app/assets/images/splash.png)
 
 ### Contributing
 1. Fork It
