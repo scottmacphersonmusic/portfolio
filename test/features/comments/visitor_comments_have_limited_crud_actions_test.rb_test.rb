@@ -7,10 +7,10 @@ feature "visitors have limited crud actions on comments" do
     visit article_path(articles(:one))
     # When I create a new comment
     click_on "New Comment"
-    fill_in "Name", with: "Troll"
-    fill_in "URL", with: "www.troll.example"
-    fill_in "Email", with: "troll@example.com"
-    fill_in "Comment", with: "Troll like article"
+    fill_in 'Commenter name', with: "Troll"
+    fill_in 'Commenter url', with: "www.troll.example"
+    fill_in 'Commenter email', with: "troll@example.com"
+    fill_in 'Content', with: "Troll like article"
     click_on "Submit Comment"
     # Then a new comment is submitted for approval
     page.must_have_content "Comment has been submitted to the editor for approval."
@@ -20,20 +20,20 @@ feature "visitors have limited crud actions on comments" do
 
   # - - - Unhappy Paths - - -
 
-  # scenario "Visitors can't create invalid comments" do
-  #   # Given a new article_comment form
-  #   visit new_article_comment_path(articles(:one))
-  #   # When I submit invalid comment data
-  #   fill_in "Name", with: ""
-  #   fill_in "Email", with: ""
-  #   fill_in "Comment", with: ""
-  #   click_on "Submit Comment"
-  #   # Then no comment is submitted for approval
-  #   page.must_have_content "error message"
-  #   page.must_have_content "Name can't be blank"
-  #   page.must_have_content "Email can't be blank"
-  #   page.must_have_content "Comment can't be blank"
-  # end
+  scenario "Visitors can't create invalid comments" do
+    # Given a new article_comment form
+    visit new_article_comment_path(articles(:one))
+    # When I submit invalid comment data
+    fill_in "Commenter name", with: ""
+    fill_in "Commenter email", with: ""
+    fill_in "Content", with: ""
+    click_on "Submit Comment"
+    # Then no comment is submitted for approval
+    page.must_have_content "3 errors prohibited this comment from being saved:"
+    page.must_have_content "Commenter name can't be blank"
+    page.must_have_content "Commenter email can't be blank"
+    page.must_have_content "Content can't be blank"
+  end
 
   # scenario "Visitors can't update comments" do
   #   # When I try to visit an edit article form
