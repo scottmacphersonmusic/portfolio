@@ -7,11 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    if current_user && current_user.editor?
-      @comments = @article.comments
-    else
-      @comments = @article.comments.where(approved: true)
-    end
+    @comments = @article.comments
   end
 
   def new
