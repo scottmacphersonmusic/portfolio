@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
@@ -21,12 +19,47 @@
 </p>
 
 <% if policy(@article).update? %>
-  <%= link_to 'Edit', edit_article_path(@article) %>
+  <%= link_to 'Edit', edit_article_path(@article),
+      class: "button radius small" %>
 <% end %>
 
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Back', articles_path, class: "button radius small" %>
 
 <% if policy(@article).destroy? %>
   <%= link_to 'Destroy', article_path, class: "button radius small",
-      method: :delete, data: { confirm: 'Are you sure?' } %>
+      method: :delete, data: { confirm: 'Are you sure?' },
+      id: 'article_destroy' %>
 <% end %>
+
+<hr/>
+
+<h3> Comments </h3>
+
+<br/>
+
+<%= link_to "New Comment", new_article_comment_path(@article),
+    class: "button radius small"%>
+
+<br/><br/>
+
+<ul>
+  <% policy_scope(@comments).order(created_at: :desc).each do |comment| %>
+    <li><%= comment.commenter_name %> |
+    <%= comment.commenter_email %>
+    <% if comment.commenter_url %>
+      | <%= link_to comment.commenter_url, comment.commenter_url
+            %>
+    <% end %>
+    </li>
+    <p><%= comment.content %></p><br/>
+    <% if current_user && current_user.editor? %>
+      Approved: <%= comment.approved %><br/>
+      <%= link_to "Edit", edit_article_comment_path(@article,
+          comment), class: "button radius small" %>
+      <%= link_to "Destroy", article_comment_path(@article, comment),
+          method: :delete, data: { confirm: 'Are you sure?' },
+          class: "button radius small destroy" %>
+    <% end %>
+    <hr/>
+  <% end %>
+</ul>
