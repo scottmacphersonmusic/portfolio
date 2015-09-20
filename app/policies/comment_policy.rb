@@ -10,6 +10,10 @@ class CommentPolicy < ApplicationPolicy
     user && user.editor?
   end
 
+  def destroy?
+    user && user.editor?
+  end
+
   class Scope < Scope
     def resolve
       if user && user.editor?

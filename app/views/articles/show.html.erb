@@ -27,7 +27,8 @@
 
 <% if policy(@article).destroy? %>
   <%= link_to 'Destroy', article_path, class: "button radius small",
-      method: :delete, data: { confirm: 'Are you sure?' } %>
+      method: :delete, data: { confirm: 'Are you sure?' },
+      id: 'article_destroy' %>
 <% end %>
 
 <hr/>
@@ -55,7 +56,7 @@
       Approved: <%= comment.approved %><br/>
       <%= link_to "Edit", edit_article_comment_path(@article,
           comment), class: "button radius small" %>
-      <%= link_to "Delete", article_comment_path(@article, comment),
+      <%= link_to "Destroy", article_comment_path(@article, comment),
           method: :delete, data: { confirm: 'Are you sure?' },
           class: "button radius small" %>
     <% end %>

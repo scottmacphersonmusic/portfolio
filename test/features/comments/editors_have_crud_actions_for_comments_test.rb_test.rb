@@ -27,18 +27,17 @@ feature "Editors have crud actions for comments" do
     check("comment_approved")
     click_on "Submit Comment"
     # Then the comment is approved
-    save_and_open_page
     page.must_have_content "Comment was successfully updated."
     page.must_have_content "Oba"
   end
 
-  # scenario "editors can destroy comments" do
-  #   # Given an article page with a comment
-  #   visist article_path(articles(:one))
-  #   # When I click delete on the comment
-  #   page.find('comment links').click_on "Destroy"
-  #   # Then the comment is deleted
-  #   page.must_have_content "Comment successfully destroyed."
-  #   page.wont_have_content "comment content - see fixture"
-  # end
+  scenario "editors can destroy comments" do
+    # Given an article page with a comment
+    visit article_path(articles(:one))
+    # When I click delete on the comment
+    page.find(".destroy").click
+    # Then the comment is deleted
+    page.must_have_content "Comment was successfully destroyed."
+    page.wont_have_content "The Dude"
+  end
 end

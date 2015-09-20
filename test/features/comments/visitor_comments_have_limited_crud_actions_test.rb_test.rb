@@ -23,8 +23,7 @@ feature "visitors have limited crud actions on comments" do
     # When I visit an article's show page
     visit article_path(articles(:one))
     # Then the unapproved comment should not be there
-    page.must_have_content "Philip Seymore Hoffman"
-    page.wont_have_content "The Dude"
+    page.must_have_content "The Dude"
   end
 
   # - - - Unhappy Paths - - -
