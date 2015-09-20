@@ -1,7 +1,6 @@
 require "test_helper"
 
 feature "visitors have limited crud actions on comments" do
-
   scenario "Visitors can create comments" do
     # Given an existing article
     visit article_path(articles(:one))
