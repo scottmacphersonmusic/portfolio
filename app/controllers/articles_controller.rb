@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  include Pundit
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 

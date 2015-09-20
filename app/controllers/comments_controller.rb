@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_article, only: [:new, :create]
+  before_action :authenticate_user!, only: [:edit, :update]
 
   def new
     @comment = Comment.new
@@ -16,6 +17,13 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment = Comment.find(params[:id])
+    authorize @comment
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    authorize @comment
   end
 
   private

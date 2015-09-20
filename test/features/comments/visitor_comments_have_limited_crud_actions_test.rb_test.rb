@@ -35,13 +35,13 @@ feature "visitors have limited crud actions on comments" do
     page.must_have_content "Content can't be blank"
   end
 
-  # scenario "Visitors can't update comments" do
-  #   # When I try to visit an edit article form
-  #   visit edit_article_comment_path(articles(:one), comments(:rails))
-  #   # Then I am redirected and see a message
-  #   page.must_have_content "You aren't authorized to do that"
-  #   page.wont_have_content "Edit Comment"
-  # end
+  scenario "Visitors can't update comments" do
+    # When I try to visit an edit article form
+    visit edit_article_comment_path(articles(:one), comments(:rails))
+    # Then I am redirected and see a message
+    page.must_have_content "You need to sign in or sign up before continuing."
+    page.wont_have_content "Edit Comment"
+  end
 
   # scenario "Visitors wont have edit or delete links available" do
   #   # When I view an article page with an existing comment
