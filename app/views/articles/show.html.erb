@@ -50,6 +50,9 @@
             %>
     <% end %>
     </li>
+    <% if current_user && current_user.editor? %>
+      <li>Approved: <%= comment.approved %></li>
+    <% end %>
     <p><%= comment.content %></p>
     <hr/>
   <% end %>

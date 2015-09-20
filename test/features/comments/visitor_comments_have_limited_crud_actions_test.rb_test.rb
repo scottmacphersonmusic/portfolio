@@ -52,11 +52,11 @@ feature "visitors have limited crud actions on comments" do
     page.wont_have_content "Edit Comment"
   end
 
-  # scenario "Visitors wont have edit or delete links available" do
-  #   # When I view an article page with an existing comment
-  #   visit article_path(articles(:one))
-  #   # Then I wont have access to edit or delete links
-  #   page.wont_have_link "Edit"
-  #   page.wont_have_link "Delete"
-  # end
+  scenario "Visitors wont have edit or delete links available" do
+    # When I view an article page with an existing comment
+    visit article_path(articles(:one))
+    # Then I wont have access to edit or delete links
+    page.wont_have_link "Edit"
+    page.wont_have_link "Delete"
+  end
 end

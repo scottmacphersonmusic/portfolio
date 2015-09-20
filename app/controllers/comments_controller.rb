@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create(comment_params)
     if @comment.save
+      @comment.approved = false
+      @article.comments << @comment
       flash[:notice] = "Comment has been submitted to the editor for approval."
       redirect_to @article
     else

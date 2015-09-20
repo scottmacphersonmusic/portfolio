@@ -1,22 +1,30 @@
 require "test_helper"
 
 feature "Editors have crud actions for comments" do
-  # before do
-  #   # Given an editor role
-  #   sign_in
-  # end
+  before do
+    # Given an editor role
+    sign_in
+  end
 
-  # scenario "editors can create comments" do
-  #   # When I create a new comment
-  #   visit new_article_comment_path(articles(:one))
-  #   fill_in "Name", with: "p-redditter"
-  #   fill_in "URL", with: "www.preddit.example"
-  #   fill_in "Email", with: "predditer@example.com"
-  #   fill_in "Comment", with: "Great point!"
-  #   click_on "Submit Comment"
-  #   # Then it is created
-  #   page.must_have_content "Your comment has been submitted for approval."
-  #   page.wont_have_content "Great point!"
+  scenario "editors can create comments" do
+    # When I create a new comment
+    visit new_article_comment_path(articles(:one))
+    fill_in "Commenter name", with: "p-redditter"
+    fill_in "Commenter url", with: "www.preddit.example"
+    fill_in "Commenter email", with: "predditer@example.com"
+    fill_in "Content", with: "Great point!"
+    click_on "Submit Comment"
+    # Then it is created
+    page.must_have_content "Comment has been submitted to the editor for approval."
+    page.must_have_content "Great point!"
+  end
+
+  # scenario "editors can see edit and delete links" do
+  #   # When I visit an article show page with an existing comment
+  #   visit article_path(articles(:one))
+  #   # Then I should see edit and delete links
+  #   # edit link count should be 3
+  #   # destroy link count should be
   # end
 
   # scenario "editors can edit/approve comments" do
