@@ -18,6 +18,15 @@ feature "visitors have limited crud actions on comments" do
     page.wont_have_content "Troll like article"
   end
 
+  scenario "Visitors should only see approved comments" do
+    # Given existing comments for an article
+    # When I visit an article's show page
+    visit article_path(articles(:one))
+    # Then the unapproved comment should not be there
+    page.must_have_content "Philip Seymore Hoffman"
+    page.wont_have_content "The Dude"
+  end
+
   # - - - Unhappy Paths - - -
 
   scenario "Visitors can't create invalid comments" do

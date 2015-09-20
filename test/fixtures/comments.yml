@@ -3,4 +3,13 @@ rails:
   commenter_url: www.thedudeabides.example
   commenter_email: thedude@example.com
   content: That article really tied the room together, man.
+  approved: false
+  article: one
+
+rails_2:
+  commenter_name: Philip Seymore Hoffman
+  commenter_url: www.bigphil.example
+  commenter_email: philly@example.com
+  content: Im not sure Mr. Lebowski would approve...
+  approved: true
   article: one

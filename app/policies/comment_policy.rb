@@ -10,17 +10,13 @@ class CommentPolicy < ApplicationPolicy
     user && user.editor?
   end
 
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
+  class Scope < Scope
     def resolve
-      scope
+      if user && user.editor?
+        scope
+      else
+        scope.where(approved: true)
+      end
     end
   end
-
 end
