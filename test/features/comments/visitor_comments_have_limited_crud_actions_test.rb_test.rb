@@ -20,34 +20,34 @@ feature "visitors have limited crud actions on comments" do
 
   # - - - Unhappy Paths - - -
 
-  scenario "Visitors can't create invalid comments" do
-    # Given a new article_comment form
-    visit new_article_comment_path(articles(:one))
-    # When I submit invalid comment data
-    fill_in "Name", with: ""
-    fill_in "Email", with: ""
-    fill_in "Comment", with: ""
-    click_on "Submit Comment"
-    # Then no comment is submitted for approval
-    page.must_have_content "error message"
-    page.must_have_content "Name can't be blank"
-    page.must_have_content "Email can't be blank"
-    page.must_have_content "Comment can't be blank"
-  end
+  # scenario "Visitors can't create invalid comments" do
+  #   # Given a new article_comment form
+  #   visit new_article_comment_path(articles(:one))
+  #   # When I submit invalid comment data
+  #   fill_in "Name", with: ""
+  #   fill_in "Email", with: ""
+  #   fill_in "Comment", with: ""
+  #   click_on "Submit Comment"
+  #   # Then no comment is submitted for approval
+  #   page.must_have_content "error message"
+  #   page.must_have_content "Name can't be blank"
+  #   page.must_have_content "Email can't be blank"
+  #   page.must_have_content "Comment can't be blank"
+  # end
 
-  scenario "Visitors can't update comments" do
-    # When I try to visit an edit article form
-    visit edit_article_comment_path(articles(:one), comments(:rails))
-    # Then I am redirected and see a message
-    page.must_have_content "You aren't authorized to do that"
-    page.wont_have_content "Edit Comment"
-  end
+  # scenario "Visitors can't update comments" do
+  #   # When I try to visit an edit article form
+  #   visit edit_article_comment_path(articles(:one), comments(:rails))
+  #   # Then I am redirected and see a message
+  #   page.must_have_content "You aren't authorized to do that"
+  #   page.wont_have_content "Edit Comment"
+  # end
 
-  scenario "Visitors wont have edit or delete links available" do
-    # When I view an article page with an existing comment
-    visit article_path(articles(:one))
-    # Then I wont have access to edit or delete links
-    page.wont_have_link "Edit"
-    page.wont_have_link "Delete"
-  end
+  # scenario "Visitors wont have edit or delete links available" do
+  #   # When I view an article page with an existing comment
+  #   visit article_path(articles(:one))
+  #   # Then I wont have access to edit or delete links
+  #   page.wont_have_link "Edit"
+  #   page.wont_have_link "Delete"
+  # end
 end
