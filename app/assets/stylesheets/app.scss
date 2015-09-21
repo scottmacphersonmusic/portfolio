@@ -3,7 +3,8 @@
 -----------------------------------------------------
 :: Shared Styles
 :: Welcome Page
-:: Blog
+:: Blog (Articles)
+:: Portfolio (Projects)
 */
 
 /* -----------------------------------------
@@ -60,7 +61,7 @@ div.large-12.columns.intro-text {
   margin-left: 38%
 }
 
- /* -----------------------------------------
+/* -----------------------------------------
    Blog
 ----------------------------------------- */
 
@@ -73,4 +74,18 @@ div.large-12.columns.intro-text {
 
 #new_article:hover {
   background: #2ba6cb;
+}
+
+
+/* -----------------------------------------
+   Portfolio  (Projects)
+----------------------------------------- */
+
+.project_image {
+  height: 150px;
+  width: 150px;
+  border: #2ba6cb;
+  border-style: solid;
+  border-width: thick;
+  border-radius: 15px;
 }

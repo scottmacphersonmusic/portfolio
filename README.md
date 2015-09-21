@@ -20,7 +20,6 @@ A portfolio page to display my skills, thoughts, and accomplishments.
     - Music page with videos, recordings and transcriptions
     - Comments on portfolio projects
 
-
 ### Screenshot
 Here's what the splash screen looks like at the moment:
 
