@@ -4,7 +4,8 @@ require "coveralls"
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start 'rails'
 
-ENV["RAILS_ENV"] = "test"
+# ENV["RAILS_ENV"] = "test"
+Rails.env = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"

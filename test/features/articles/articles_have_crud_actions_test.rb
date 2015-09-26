@@ -4,7 +4,6 @@ feature "Articles Have Crud Actions" do
   scenario "create a new article" do
     # Given an authorized user completes a new article form
     sign_in(:author)
-
     visit new_article_path
     # When I submit the form
     fill_in 'Title', with: "My Favorite Things"
