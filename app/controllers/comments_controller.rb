@@ -1,17 +1,17 @@
 class CommentsController < ApplicationController
-  before_action :set_article, only: [:new, :create, :edit, :update, :destroy]
+  before_action :load_commentable, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_comment, only: [:edit, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def new
-    @comment = Comment.new
+    @comment = @commentable.comments.new
   end
 
   def create
-    @comment = @article.comments.build(comment_params)
+    @comment = @commentable.comments.build(comment_params)
     if @comment.save
       flash[:notice] = "Comment has been submitted to the editor for approval."
-      redirect_to @article
+      redirect_to @commentable
     else
       render :new
     end
@@ -22,11 +22,10 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = @article.comments.build(comment_params)
+    @comment = @commentable.comments.build(comment_params)
     authorize @comment
     if @comment.save
-      flash[:notice] = "Comment was successfully updated."
-      redirect_to @article
+      redirect_to @commentable, notice: "Comment was successfully updated."
     else
       render :new
     end
@@ -35,7 +34,7 @@ class CommentsController < ApplicationController
   def destroy
     authorize @comment
     @comment.destroy
-    redirect_to @article, notice: 'Comment was successfully destroyed.'
+    redirect_to @commentable, notice: 'Comment was successfully destroyed.'
   end
 
   private
@@ -43,14 +42,16 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(
       :commenter_name, :commenter_email,
-      :commenter_url, :content)
+      :commenter_url, :content, :commentable_id)
   end
 
-  def set_article
-    @article = Article.find(params[:article_id])
+  def load_commentable
+    @resource, id = request.path.split('/')[1, 2]
+    @commentable = @resouce.singularize.classify.constantize.find(id)
   end
 
   def set_comment
-    @comment = @article.comments.find(params[:id])
+    puts params.inspect
+    @comment = @commentable.comments.find(params[:commentable_id])
   end
 end

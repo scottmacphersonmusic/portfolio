@@ -37,7 +37,7 @@
 
 <br/>
 
-<%= link_to "New Comment", new_article_comment_path(@article),
+<%= link_to "New Comment", [:new, @commentable, :comment],
     class: "button radius small"%>
 
 <br/><br/>
@@ -54,9 +54,9 @@
     <p><%= comment.content %></p><br/>
     <% if current_user && current_user.editor? %>
       Approved: <%= comment.approved %><br/>
-      <%= link_to "Edit", edit_article_comment_path(@article,
+      <%= link_to "Edit", edit_article_comment_path(@commentable,
           comment), class: "button radius small" %>
-      <%= link_to "Destroy", article_comment_path(@article, comment),
+      <%= link_to "Destroy", article_comment_path(@commentable, comment),
           method: :delete, data: { confirm: 'Are you sure?' },
           class: "button radius small destroy" %>
     <% end %>
