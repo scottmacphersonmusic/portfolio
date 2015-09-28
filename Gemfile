@@ -14,6 +14,7 @@ gem 'omniauth-github'
 gem 'pry-rails', :group => [:development, :test]
 gem 'pundit'
 gem 'rails', '4.2.4'
+gem 'rails-erd'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'

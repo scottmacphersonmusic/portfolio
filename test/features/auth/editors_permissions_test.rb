@@ -12,8 +12,8 @@ feature "Editors have complete access to the site" do
     # There is a checkbox for 'Published'
     page.must_have_field('Published')
     # When I submit the form
-    fill_in "Title", with: articles(:one).title
-    fill_in "Body", with: articles(:one).body
+    fill_in "Title", with: articles(:rails).title
+    fill_in "Body", with: articles(:rails).body
     check "Published"
     click_on "Create Article"
     # Then the published article should be shown

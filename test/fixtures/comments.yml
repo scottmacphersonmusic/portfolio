@@ -1,7 +1,15 @@
-rails:
+dude_on_rails:
   commenter_name: The Dude
   commenter_url: www.thedudeabides.example
   commenter_email: thedude@example.com
   content: That article really tied the room together, man.
   approved: true
-  article: one
+  commentable: rails (Article)
+
+dude_on_hack:
+  commenter_name: The Dude
+  commenter_url: www.thedudeabides.example
+  commenter_email: thedude@example.com
+  content: Excellent use of magic, man!
+  approved: true
+  commentable: hack (Project)

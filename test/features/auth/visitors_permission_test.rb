@@ -15,7 +15,7 @@ feature "unathenticated visitors have limited access" do
 
   scenario "unauthenticated users can view published articles" do
     # When I visit an articles show page
-    visit article_path(articles(:one))
+    visit article_path(articles(:rails))
     # Then I can view that article's show page
     page.must_have_content "Its the Rails way or the highway"
   end
@@ -27,7 +27,7 @@ feature "unathenticated visitors have limited access" do
     page.wont_have_link "Edit"
     page.wont_have_link "Destroy"
     # And the show page doesn't either
-    visit article_path(articles(:one))
+    visit article_path(articles(:rails))
     page.wont_have_link "Edit"
     page.wont_have_link "Destroy"
   end
