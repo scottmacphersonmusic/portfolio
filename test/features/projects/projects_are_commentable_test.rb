@@ -60,45 +60,45 @@ feature "visitors have limited crud actions on project comments" do
   end
 end
 
-# feature "Editors have crud actions for comments" do
-#   before do
-#     # Given an editor role
-#     sign_in
-#   end
+feature "Editors have crud actions for comments" do
+  before do
+    # Given an editor role
+    sign_in
+  end
 
-#   scenario "editors can create comments" do
-#     # When I create a new comment
-#     visit new_article_comment_path(articles(:rails))
-#     fill_in "Commenter name", with: "p-redditter"
-#     fill_in "Commenter url", with: "www.preddit.example"
-#     fill_in "Commenter email", with: "predditer@example.com"
-#     fill_in "Content", with: "Great point!"
-#     click_on "Submit Comment"
-#     # Then it is created
-#     page.must_have_content "Comment has been submitted to the editor for approval."
-#     page.must_have_content "Great point!"
-#   end
+  scenario "editors can create comments" do
+    # When I create a new comment
+    visit new_project_comment_path(projects(:hack))
+    fill_in "Commenter name", with: "p-redditter"
+    fill_in "Commenter url", with: "www.preddit.example"
+    fill_in "Commenter email", with: "predditer@example.com"
+    fill_in "Content", with: "Great point!"
+    click_on "Submit Comment"
+    # Then it is created
+    page.must_have_content "Comment has been submitted to the editor for approval."
+    page.must_have_content "Great point!"
+  end
 
-#   scenario "editors can edit/approve comments" do
-#     # Given an article edit form
-#     visit edit_article_comment_path(articles(:rails), comments(:dude_on_rails))
-#     # When I click approved and submit
-#     fill_in "Commenter name", with: 'Oba'
-#     check("comment_approved")
-#     click_on "Submit Comment"
-#     # Then the comment is approved
-#     page.must_have_content "Comment was successfully updated."
-#     page.must_have_content "Oba"
-#     page.must_have_content "Approved: true"
-#   end
+  scenario "editors can edit/approve comments" do
+    # Given a project comment edit form
+    visit edit_project_comment_path(projects(:hack), comments(:dude_on_hack))
+    # When I click approved and submit
+    fill_in "Commenter name", with: 'Oba'
+    check("comment_approved")
+    click_on "Submit Comment"
+    # Then the comment is approved
+    page.must_have_content "Comment was successfully updated."
+    page.must_have_content "Oba"
+    page.must_have_content "Approved: true"
+  end
 
-#   scenario "editors can destroy comments" do
-#     # Given an article page with a comment
-#     visit article_path(articles(:rails))
-#     # When I click delete on the comment
-#     page.find(".destroy").click
-#     # Then the comment is deleted
-#     page.must_have_content "Comment was successfully destroyed."
-#     page.wont_have_content "The Dude"
-#   end
-# end
+  scenario "editors can destroy comments" do
+    # Given an article page with a comment
+    visit article_path(articles(:rails))
+    # When I click delete on the comment
+    page.find(".destroy").click
+    # Then the comment is deleted
+    page.must_have_content "Comment was successfully destroyed."
+    page.wont_have_content "The Dude"
+  end
+end
