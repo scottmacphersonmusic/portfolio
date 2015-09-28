@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :load_commentable, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_comment, only: [:edit, :destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def new
@@ -22,9 +22,8 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = @commentable.comments.build(comment_params)
     authorize @comment
-    if @comment.save
+    if @comment.update_attributes(comment_params)
       redirect_to @commentable, notice: "Comment was successfully updated."
     else
       render :new
@@ -41,17 +40,16 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(
-      :commenter_name, :commenter_email,
+      :commenter_name, :commenter_email, :approved,
       :commenter_url, :content, :commentable_id)
   end
 
   def load_commentable
     @resource, id = request.path.split('/')[1, 2]
-    @commentable = @resouce.singularize.classify.constantize.find(id)
+    @commentable = @resource.singularize.classify.constantize.find(id)
   end
 
   def set_comment
-    puts params.inspect
-    @comment = @commentable.comments.find(params[:commentable_id])
+    @comment = @commentable.comments.find(params[:id])
   end
 end
