@@ -21,6 +21,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @commentable = @project
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def edit
@@ -43,7 +46,9 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :technologies_used, :image_url)
+    params.require(:project).permit :name,
+                                    :technologies_used,
+                                    :image_url
   end
 
   def set_project
