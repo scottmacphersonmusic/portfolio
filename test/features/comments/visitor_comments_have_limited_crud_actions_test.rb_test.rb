@@ -3,7 +3,7 @@ require "test_helper"
 feature "visitors have limited crud actions on comments" do
   scenario "Visitors can create comments" do
     # Given an existing article
-    visit article_path(articles(:one))
+    visit article_path(articles(:rails))
     # When I create a new comment
     click_on "New Comment"
     fill_in 'Commenter name', with: "Troll"
@@ -20,7 +20,7 @@ feature "visitors have limited crud actions on comments" do
   scenario "Visitors should only see approved comments" do
     # Given existing comments for an article
     # When I visit an article's show page
-    visit article_path(articles(:one))
+    visit article_path(articles(:rails))
     # Then the unapproved comment should not be there
     page.must_have_content "The Dude"
   end
@@ -29,7 +29,7 @@ feature "visitors have limited crud actions on comments" do
 
   scenario "Visitors can't create invalid comments" do
     # Given a new article_comment form
-    visit new_article_comment_path(articles(:one))
+    visit new_article_comment_path(articles(:rails))
     # When I submit invalid comment data
     fill_in "Commenter name", with: ""
     fill_in "Commenter email", with: ""
@@ -44,7 +44,7 @@ feature "visitors have limited crud actions on comments" do
 
   scenario "Visitors can't update comments" do
     # When I try to visit an edit article form
-    visit edit_article_comment_path(articles(:one), comments(:rails))
+    visit edit_article_comment_path(articles(:rails), comments(:dude_on_rails))
     # Then I am redirected and see a message
     page.must_have_content "You need to sign in or sign up before continuing."
     page.wont_have_content "Edit Comment"
@@ -52,7 +52,7 @@ feature "visitors have limited crud actions on comments" do
 
   scenario "Visitors wont have edit or delete links available" do
     # When I view an article page with an existing comment
-    visit article_path(articles(:one))
+    visit article_path(articles(:rails))
     # Then I wont have access to edit or delete links
     page.wont_have_link "Edit"
     page.wont_have_link "Delete"

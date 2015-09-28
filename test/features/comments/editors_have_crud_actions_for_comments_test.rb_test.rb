@@ -8,7 +8,7 @@ feature "Editors have crud actions for comments" do
 
   scenario "editors can create comments" do
     # When I create a new comment
-    visit new_article_comment_path(articles(:one))
+    visit new_article_comment_path(articles(:rails))
     fill_in "Commenter name", with: "p-redditter"
     fill_in "Commenter url", with: "www.preddit.example"
     fill_in "Commenter email", with: "predditer@example.com"
@@ -21,7 +21,7 @@ feature "Editors have crud actions for comments" do
 
   scenario "editors can edit/approve comments" do
     # Given an article edit form
-    visit edit_article_comment_path(articles(:one), comments(:rails))
+    visit edit_article_comment_path(articles(:rails), comments(:dude_on_rails))
     # When I click approved and submit
     fill_in "Commenter name", with: 'Oba'
     check("comment_approved")
@@ -33,7 +33,7 @@ feature "Editors have crud actions for comments" do
 
   scenario "editors can destroy comments" do
     # Given an article page with a comment
-    visit article_path(articles(:one))
+    visit article_path(articles(:rails))
     # When I click delete on the comment
     page.find(".destroy").click
     # Then the comment is deleted

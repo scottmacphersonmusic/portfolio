@@ -20,8 +20,7 @@ feature "Articles Have Crud Actions" do
   scenario "edit an existing article" do
     # Given an authorized user visits an articles edit page
     sign_in
-
-    article = articles(:one)
+    article = articles(:rails)
     visit edit_article_path(article)
     # When I edit and submit the form
     fill_in 'Title', with: "Regarding Mediocrity"
@@ -35,7 +34,7 @@ feature "Articles Have Crud Actions" do
   scenario "delete article" do
     # Given an authorized user visits an article show page
     sign_in
-    visit article_path(articles(:one))
+    visit article_path(articles(:rails))
     # When I click destroy
     click_link('article_destroy')
     # Then the article is destroyed
