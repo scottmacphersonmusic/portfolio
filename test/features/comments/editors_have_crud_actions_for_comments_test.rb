@@ -29,6 +29,7 @@ feature "Editors have crud actions for comments" do
     # Then the comment is approved
     page.must_have_content "Comment was successfully updated."
     page.must_have_content "Oba"
+    page.must_have_content "Approved: true"
   end
 
   scenario "editors can destroy comments" do
