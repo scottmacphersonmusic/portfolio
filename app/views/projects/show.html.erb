@@ -2,4 +2,38 @@
 <p>Technologies used: <%= @project.technologies_used %></p>
 <%= image_tag @project.image_url, class: "project_image" %>
 <%= link_to "Back", projects_path %>
-<%= link_to "Destroy", @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Destroy", @project, method: :delete, data: { confirm:
+    'Are you sure?' } %>
+
+<hr/>
+
+<h3> Comments </h3>
+
+<br/>
+
+<%= link_to "New Comment", [:new, @commentable, :comment],
+    class: "button radius small" %>
+
+<br/><br/>
+
+<ul>
+  <% policy_scope(@comments).order(created_at: :desc).each do |comment| %>
+    <li><%= comment.commenter_name %> |
+    <%= comment.commenter_email %>
+    <% if comment.commenter_url %>
+      | <%= link_to comment.commenter_url, comment.commenter_url
+            %>
+    <% end %>
+    </li>
+    <p><%= comment.content %></p><br/>
+    <% if current_user && current_user.editor? %>
+      Approved: <%= comment.approved %><br/>
+      <%= link_to "Edit", edit_project_comment_path(@commentable,
+          comment), class: "button radius small" %>
+      <%= link_to "Destroy", project_comment_path(@commentable, comment),
+          method: :delete, data: { confirm: 'Are you sure?' },
+          class: "button radius small destroy" %>
+    <% end %>
+    <hr/>
+  <% end %>
+</ul>
