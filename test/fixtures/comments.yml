@@ -11,4 +11,5 @@ dude_on_hack:
   commenter_url: www.thedudeabides.example
   commenter_email: thedude@example.com
   content: Excellent use of magic, man!
+  approved: true
   commentable: hack (Project)
