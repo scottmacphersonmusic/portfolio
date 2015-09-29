@@ -1,0 +1,6 @@
+<h1>Hi <%= @user.name || @user.email %>,</h1>
+
+<p>
+  Your article has been published:<br>
+  <%= link_to @article.title, article_url(@article, host: "localhost:3000") %>
+</p>
