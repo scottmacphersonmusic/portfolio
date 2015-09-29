@@ -36,7 +36,9 @@ group :production do
 end
 
 group :test do
+  gem "email_spec"
   gem "launchy"
+  gem "minitest-matchers"
   gem "minitest-rails-capybara"
   gem "simplecov"
 end
