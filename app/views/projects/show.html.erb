@@ -1,6 +1,6 @@
 <h2><%= @project.name %></h2>
 <p>Technologies used: <%= @project.technologies_used %></p>
-<%= image_tag @project.logo_url.to_s, class: "project_logo" %>
+<%= image_tag @project.logo_url(:display).to_s, class: "project_logo" %>
 <%= link_to "Back", projects_path %>
 <%= link_to "Destroy", @project, method: :delete, data: { confirm:
     'Are you sure?' } %>
