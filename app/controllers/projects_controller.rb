@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit :name,
                                     :technologies_used,
-                                    :image_url
+                                    :logo
   end
 
   def set_project
