@@ -52,6 +52,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     choice (0.2.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -205,6 +210,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rmagick (2.15.4)
     ruby-graphviz (1.2.2)
     sass (3.4.18)
     sass-rails (5.0.3)
@@ -260,6 +266,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  carrierwave (= 0.10.0)
   coffee-rails (~> 4.1.0)
   coveralls
   devise
@@ -278,6 +285,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails-erd
   rails_12factor
+  rmagick (= 2.15.4)
   sass-rails (~> 5.0)
   sdoc
   simplecov

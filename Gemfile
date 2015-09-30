@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'carrierwave', '0.10.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'coveralls', require: false
 gem 'devise'
@@ -15,6 +16,7 @@ gem 'pry-rails', :group => [:development, :test]
 gem 'pundit'
 gem 'rails', '4.2.4'
 gem 'rails-erd'
+gem 'rmagick', '2.15.4'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
