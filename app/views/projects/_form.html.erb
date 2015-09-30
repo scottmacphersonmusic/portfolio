@@ -1,4 +1,4 @@
-<%= form_for(@project) do |f| %>
+<%= form_for @project, html: { multipart: true } do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -22,8 +22,7 @@
     <%= f.text_area :technologies_used %>
   </div>
   <div class="field">
-    <%= f.label :logo %><br />
-    <%= f.text_field :logo %>
+       <%= f.file_field :logo %>
   </div>
   <div class="actions">
     <%= f.submit %>
