@@ -1,7 +1,9 @@
 hack:
   name: Hacktastic
   technologies_used: Ruby, Rails, Zurb, Magic
+  image_url: http://placehold.it/150x150
 
 zoo:
   name: Zoo App
   technologies_used: Ruby, Rails, Farmville API, Automilker
+  image_url: http://placehold.it/150x150
