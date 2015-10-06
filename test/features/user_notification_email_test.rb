@@ -10,6 +10,9 @@ feature "Email the user notifications" do
     click_on "Update Article"
     # email = UserNotificationMailer.article_published(articles(:unpublished))
     # Then the author should be notified by email
-    puts ActionMailer::Base.deliveries.last.to.first
+    email = ActionMailer::Base.deliveries.last
+    email.must deliver_to "editor@example.com"
+    email.must have_subject "Article Published"
+    email.must have_body_text "Your article has been published"
   end
 end
