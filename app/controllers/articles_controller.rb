@@ -35,6 +35,9 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       authorize @article
       current_user.articles << @article
+      if @article.published?
+        UserNotificationMailer.article_published(@article).deliver_later
+      end
       redirect_to @article, notice: 'Article was successfully updated.'
     else
       render :edit

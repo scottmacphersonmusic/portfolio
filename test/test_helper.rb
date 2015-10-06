@@ -11,6 +11,10 @@ require "rails/test_help"
 require "minitest/rails"
 require "minitest/rails/capybara"
 require "minitest/pride"
+require "minitest-matchers"
+require "email_spec"
+include EmailSpec::Helpers
+include EmailSpec::Matchers
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
