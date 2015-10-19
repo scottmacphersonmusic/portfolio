@@ -453,6 +453,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mini_magick
+  minitest-matchers
   minitest-rails
   minitest-rails-capybara
   omniauth-github
