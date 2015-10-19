@@ -4,7 +4,7 @@
   <li class="project" id="<%= dom_id(project) %>">
     <h3><%= project.name %></h3>
     <p><%= project.technologies_used %></p>
-    <img src="<%= project.image_url %>" alt="project image", class="project_image">
+    <img src="<%= project.logo_url.to_s %>" alt="project logo", class="project_logo">
     <div class="nav">
       <%= link_to 'Show', project %> |
       <%= link_to 'Edit', edit_project_path(project) %> |
@@ -14,4 +14,7 @@
 <% end %>
 </ul>
 <br />
-<%= link_to 'New Project', new_project_path %>
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :logo %></p>
+  <p><%= f.submit "Upload Image" %> to begin adding a new project.</p>
+<% end %>

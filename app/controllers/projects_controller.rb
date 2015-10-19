@@ -3,10 +3,12 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    @uploader = Project.new.logo
+    @uploader.success_action_redirect = new_project_url
   end
 
   def new
-    @project = Project.new
+    @project = Project.new(key: params[:key])
   end
 
   def create
@@ -48,7 +50,8 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit :name,
                                     :technologies_used,
-                                    :image_url
+                                    :logo,
+                                    :key
   end
 
   def set_project
