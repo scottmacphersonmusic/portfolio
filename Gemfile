@@ -8,7 +8,6 @@ gem 'carrierwave_direct'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'coveralls', require: false
 gem 'devise'
-gem 'fog-aws'
 gem 'foundation-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'

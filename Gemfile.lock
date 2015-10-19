@@ -442,7 +442,6 @@ DEPENDENCIES
   coveralls
   devise
   dotenv-rails
-  fog-aws
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails

@@ -7,6 +7,12 @@ class LogoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  def asset_host
+    "https://s3-#{region}.amazonaws.com/scottmacsampleappbucket"
+  end
+
+  'https://s3-us-west-2.amazonaws.com/scottmacsampleappbucket/uploads/20f8ce14-1e26-445f-a3bc-757390fd58ce/saxpherson.jpg'
+  'https://s3-us-west-2.amazonaws.com/scottmacsampleappbucket/uploads/20f8ce14-1e26-445f-a3bc-757390fd58ce/saxpherson_display.jpg'
   # Choose what kind of storage to use for this uploader:
   # storage :fog    # not necessary with carrierwave-direct
 
@@ -35,9 +41,9 @@ class LogoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :display do
-    process :resize_to_limit => [200, 200]
-  end
+  # version :display do
+  #   process :resize_to_limit => [200, 200]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
