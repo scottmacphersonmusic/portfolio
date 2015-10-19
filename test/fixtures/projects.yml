@@ -1,7 +1,9 @@
 hack:
   name: Hacktastic
   technologies_used: Ruby, Rails, Zurb, Magic
+  logo: "17f812cc-4d6f-4818-bdb2-3beee253e25b/2013-08-09_07-03-20_744.jpg"
 
 zoo:
   name: Zoo App
   technologies_used: Ruby, Rails, Farmville API, Automilker
+  logo: "17f812cc-4d6f-4818-bdb2-3beee253e25b/2013-08-09_07-03-20_744.jpg"
