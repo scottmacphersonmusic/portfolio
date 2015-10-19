@@ -1,0 +1,4 @@
+Hi <%= @user.name || @user.email %>,
+
+Your article has been published:
+<%= link_to @article.title, article_url(@article, host: "www.scottmacphersonmusic.com") %>
